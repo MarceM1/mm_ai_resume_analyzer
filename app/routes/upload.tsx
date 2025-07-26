@@ -47,7 +47,6 @@ const Upload = () => {
             companyName, jobTitle, jobDescription,
             feedback: '',
         }
-        console.log('data:',data)
 
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
@@ -66,7 +65,7 @@ const Upload = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
-        console.log(data);
+        console.log('data:',data);
         navigate(`/resume/${uuid}`);
     }
 
