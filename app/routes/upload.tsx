@@ -1,15 +1,18 @@
 import Navbar from "~/components/Navbar";
 import { useState } from "react";
 import FileUploader from "~/components/FileUploader";
-import { prepareInstructions } from "../../constants/index";
+import { prepareInstructions, prepareInstructionsSpanish } from "../../constants/index";
 import { generateUUID } from "~/lib/utils";
 import { convertPdfToImage } from "~/lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
 import { useNavigate } from "react-router";
 import { useI18n } from "~/hooks/useI8n";
+import { useLanguageStore } from "~/lib/language";
 
 const Upload = () => {
-    const u= useI18n()
+    const u = useI18n()
+    const lang = useLanguageStore.getState().language;
+
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
     const [isProcessing, setIsProcessing] = useState(false);
@@ -35,13 +38,13 @@ const Upload = () => {
         const uploadedImage = await fs.upload([imageFile.file]);
         if (!uploadedImage) return setStatusText('Error: Failed to upload image');
 
-        console.log('uploadedImage:',uploadedImage)
-        console.log('uploadedFile:',uploadedFile)
+        console.log('uploadedImage:', uploadedImage)
+        console.log('uploadedFile:', uploadedFile)
 
         setStatusText('Preparing data...');
         const uuid = generateUUID();
-        console.log('uuid:',uuid)
-        
+        console.log('uuid:', uuid)
+
         const data = {
             id: uuid,
             resumePath: uploadedFile.path,
@@ -54,21 +57,57 @@ const Upload = () => {
 
         setStatusText('Analyzing...');
 
-        const feedback = await ai.feedback(
-            uploadedFile.path,
-            prepareInstructions({ jobTitle, jobDescription })
-        )
-        if (!feedback) return setStatusText('Error: Failed to analyze resume');
+        console.log('lang:', lang)
+        const instructions =
+            lang === 'es'
+                ? prepareInstructionsSpanish({ jobTitle, jobDescription })
+                : prepareInstructions({ jobTitle, jobDescription });
 
-        const feedbackText = typeof feedback.message.content === 'string'
-            ? feedback.message.content
-            : feedback.message.content[0].text;
+        console.log('instructions:', instructions)
+        try {
+            const feedback = await ai.feedback(
+                uploadedFile.path,
+                instructions
+            );
 
-        data.feedback = JSON.parse(feedbackText);
-        await kv.set(`resume:${uuid}`, JSON.stringify(data));
-        setStatusText('Analysis complete, redirecting...');
-        console.log('data:',data);
-        navigate(`/resume/${uuid}`);
+            if (!feedback) {
+                setStatusText('Error: Failed to analyze resume');
+                return;
+            }
+
+            const feedbackText = typeof feedback.message.content === 'string'
+                ? feedback.message.content
+                : feedback.message.content[0].text;
+
+            data.feedback = JSON.parse(feedbackText);
+            await kv.set(`resume:${uuid}`, JSON.stringify(data));
+            setStatusText('Analysis complete, redirecting...');
+            navigate(`/resume/${uuid}`);
+        } catch (error: any) {
+            console.error('AI feedback error:', error);
+            // Analizamos si es el error de límite de uso
+            const errorCode = error?.error?.code || error?.code;
+            const isUsageError = errorCode === 'error_400_from_delegate';
+
+            if (isUsageError) {
+                setStatusText(lang === 'es'
+                    ? 'Se ha alcanzado el límite de uso. Serás redirigido al panel de Puter...'
+                    : 'Usage limit reached. Redirecting to Puter dashboard...'
+                );
+
+                setTimeout(() => {
+                    window.location.href = 'https://puter.ai/dashboard';
+                }, 2500);
+
+                return;
+            }
+
+            
+            setStatusText(lang === 'es'
+                ? 'Hubo un error al analizar tu CV. Intenta nuevamente.'
+                : 'There was an error analyzing your resume. Please try again.'
+            );
+        }
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

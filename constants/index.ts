@@ -244,3 +244,22 @@ export const prepareInstructions = ({
   Provide the feedback using the following format: ${AIResponseFormat}
   Return the analysis as a JSON object, without any other text and without the backticks.
   Do not include any other text or comments.`;
+
+  export const prepareInstructionsSpanish = ({
+  jobTitle,
+  jobDescription,
+}: {
+  jobTitle: string;
+  jobDescription: string;
+}) =>
+  `Sos un experto en sistemas de seguimiento de candidatos (ATS) y análisis de currículums.
+Por favor, analizá y calificá este CV y sugerí cómo mejorarlo.
+La puntuación puede ser baja si el currículum es deficiente.
+Sé minucioso y detallado. No dudes en señalar errores o áreas que necesitan mejoras.
+Si hay mucho por mejorar, no tengas miedo de otorgar una calificación baja. Esto es para ayudar al usuario a mejorar su CV.
+Si está disponible, usá la descripción del puesto para dar una devolución más específica.
+El título del puesto es: ${jobTitle}
+La descripción del puesto es: ${jobDescription}
+Proporcioná el feedback usando el siguiente formato: ${AIResponseFormat}
+Devolvé el análisis como un objeto JSON, sin ningún texto adicional ni backticks.
+No incluyas ningún otro texto o comentario.`;
