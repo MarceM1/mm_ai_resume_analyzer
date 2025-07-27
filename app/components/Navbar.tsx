@@ -7,10 +7,12 @@ const Navbar = () => {
             <Link to={"/"}>
                 <p className="text-2xl font-bold text-gradient">Resumind</p>
             </Link>
-            <Link to={"/upload"} className="primary-button w-fit">
-                Upload Resume
-            </Link>
-            {/* <LanguageSwitch /> */}
+            <div className="flex flex-row gap-2">
+                <Link to={"/upload"} className="primary-button w-fit">
+                    Upload Resume
+                </Link>
+                {/* <LanguageSwitch /> */}
+            </div>
         </nav>
     );
 };

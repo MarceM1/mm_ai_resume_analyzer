@@ -8,7 +8,7 @@ export const LanguageSwitch = ()=> {
     };
 
     return (
-        <button className="primary-button" onClick={handleLanguage}>
+        <button className="language-button" onClick={handleLanguage}>
             {language === 'en' ? 'ES' : 'EN'}
         </button>
     )
