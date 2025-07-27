@@ -1,3 +1,39 @@
 {
-  "title": "Resumind – Análisis Inteligente de CV"
+  "navbar": {
+    "upload": "Analizá tu CV"
+  },
+  "home": {
+    "metaTitle": "Resumind – Feedback AI para tu CV",
+    "heroTitle": "Analizá tu CV y recibí Feedback potenciado por IA",
+    "heroSubtitle": "Subí tus postulaciones y obtené insights en tiempo real con IA"
+  },
+  "auth": {
+    "welcome": "Bienvenido",
+    "subText": "Conectate para Continuar tu Búsqueda Laboral",
+    "signingIn": "Conectándote...",
+    "login": "Conectarse",
+    "logout": "Salir"
+  },
+  "resume": {
+    "review": "Análisis de CV"
+  },
+  "upload":{
+    "title":"Feedback inteligente para tu trabajo soñado",
+    "subtitle":"Subí tu CV para obtener una puntuación ATS y consejos de mejora"
+  },
+  "uploadForm":{
+    "label_companyName": "Nombre de la Empresa",
+    "label_jobTitle": "Título de la Posición",
+    "label_uploadResume": "Subir CV", 
+    "label_jobDescription": "Descripción de la Posición",
+    "analyzeResume": "Análisis de CV",
+    "placeholder_companyName": "Ingresá Nombre de la Empresa",
+    "placeholder_jobTitle": "Ingresá Título de la Posición",
+    "span_uploadResume": "Click para subir", 
+    "p_uploadResume":"o arrastrá y soltá",
+    "placeholder_jobDescription": "Ingresá Descripción de la Posición"
+  },
+  "common": {
+    "backHomepage": "Inicio"
+  }
 }

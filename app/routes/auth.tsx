@@ -2,6 +2,7 @@
 import {usePuterStore} from "~/lib/puter";
 import {useEffect} from "react";
 import {useLocation, useNavigate} from "react-router";
+import { useI18n } from "~/hooks/useI8n";
 
 export const meta = () => ([
     {title: 'Resumind | Auth'},
@@ -10,6 +11,7 @@ export const meta = () => ([
 
 
 const Auth = () => {
+    const a= useI18n()
     const {isLoading, auth} = usePuterStore()
 
     const location = useLocation()
@@ -24,22 +26,22 @@ const Auth = () => {
             <div className="gradient-border shadow-lg">
                 <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
                     <div className="flex flex-col gap-2 items-center text-center">
-                        <h1>Welcome</h1>
-                        <h2>Log In To Continue Your Job Journey</h2>
+                        <h1>{a.auth.welcome}</h1>
+                        <h2>{a.auth.subText}</h2>
                     </div>
                     <div>
                         {
                             isLoading ? (
-                                <button className="auth-button animate-pulse">Signing you in...</button>
+                                <button className="auth-button animate-pulse">{a.auth.signingIn}</button>
                             ) : (
                                 <>
                                     {auth.isAuthenticated ? (
                                         <button className="auth-button" onClick={auth.signOut}>
-                                            <p>Log Out</p>
+                                            <p>{a.auth.logout}</p>
                                         </button>
                                     ) : (
                                         <button className="auth-button" onClick={auth.signIn}>
-                                            <p>Log In</p>
+                                            <p>{a.auth.login}</p>
                                         </button>
 
                                     )}

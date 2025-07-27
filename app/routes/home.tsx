@@ -10,7 +10,7 @@ import { useI18n } from "~/hooks/useI8n";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Resumind"},
+        {title: "Resumind - Smart Resume Feedbac"},
         {name: "description", content: "AI feedback for your dream job!"},
     ];
 }
@@ -29,11 +29,12 @@ export default function Home() {
         <section className="main-section">
             <div className="page-heading py-16">
                 <h1>
-                    {/* {t.title} */}
-                     Track Your Applications & Resume Ratings 
+                    {t.home.heroTitle}
+                     {/* Track Your Applications & Resume Ratings  */}
                 </h1>
                 <h2>
-                    Review your submissions abd check AI-powered feedback.
+                    {t.home.heroSubtitle}
+                    {/* Review your submissions abd check AI-powered feedback. */}
                 </h2>
             </div>
 

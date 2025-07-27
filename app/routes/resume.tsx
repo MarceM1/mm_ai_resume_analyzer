@@ -5,6 +5,7 @@ import ATS from '~/components/ATS';
 
 import { usePuterStore } from '~/lib/puter';
 import Details from '~/components/Details';
+import { useI18n } from '~/hooks/useI8n';
 
 export const meta = () => {
     [
@@ -14,6 +15,8 @@ export const meta = () => {
 }
 
 const Resume = () => {
+    const r = useI18n()
+
     const [imageUrl, setImageUrl] = useState('')
     const [resumeUrl, setResumeUrl] = useState('')
     const [feedback, setFeedback] = useState<Feedback | null >(null)
@@ -58,7 +61,7 @@ const Resume = () => {
             <nav className="resume-nav">
                 <Link to={'/'} className='back-button'>
                     <img src="/icons/back.svg" alt="back logo" className='w-2.5 h-2.5' />
-                    <span className=' text-gray-800 text-sm font-semibold'>Back to Homepage</span>
+                    <span className=' text-gray-800 text-sm font-semibold'>{r.common.backHomepage}</span>
                 </Link>
             </nav>
             <div className="flex flex-row w-full max-lg:flex-col-reverse">
@@ -72,7 +75,7 @@ const Resume = () => {
                     )}
                 </section>
                 <section className="feedback-section">
-                    <h2 className='text-4xl !text-black font-bold'>Resume Review</h2>
+                    <h2 className='text-4xl !text-black font-bold'>{r.resume.review}</h2>
                     {feedback ? (
                         <div className='flex flex-col gap-8 animate-in fade-in duration-1000'>
                             <Sumary feedback={feedback} />

@@ -6,8 +6,10 @@ import { generateUUID } from "~/lib/utils";
 import { convertPdfToImage } from "~/lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
 import { useNavigate } from "react-router";
+import { useI18n } from "~/hooks/useI8n";
 
 const Upload = () => {
+    const u= useI18n()
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
     const [isProcessing, setIsProcessing] = useState(false);
@@ -88,36 +90,36 @@ const Upload = () => {
             <Navbar />
             <section className="main-section">
                 <div className="page-heading py-16">
-                    <h1>Smart feedback for your dream job</h1>
+                    <h1>{u.upload.title}</h1>
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
                             <img src="/images/resume-scan.gif" alt="resumen scan" className="w-full" />
                         </>
                     ) : (
-                        <h2>Drop your resume for an ATS score and improvement tips</h2>
+                        <h2>{u.upload.subtitle}</h2>
                     )}
                     {!isProcessing ? (
                         <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8" action="">
                             <div className="form-div">
-                                <label htmlFor="company-name">Company Name</label>
+                                <label htmlFor="company-name">{u.uploadForm.label_companyName}</label>
                                 <input type="text" name="company-name" id="company-name"
-                                    placeholder="Enter Company Name" />
+                                    placeholder={u.uploadForm.placeholder_companyName} />
                             </div>
                             <div className="form-div">
-                                <label htmlFor="job-title">Job Title</label>
-                                <input type="text" name="job-title" id="job-title" placeholder="Enter Job Title" />
+                                <label htmlFor="job-title">{u.uploadForm.label_jobTitle}</label>
+                                <input type="text" name="job-title" id="job-title" placeholder={u.uploadForm.placeholder_jobTitle} />
                             </div>
                             <div className="form-div">
-                                <label htmlFor="job-description">Job Description</label>
+                                <label htmlFor="job-description">{u.uploadForm.label_jobDescription}</label>
                                 <textarea rows={5} name="job-description" id="job-description"
-                                    placeholder="Enter Job Description" />
+                                    placeholder={u.uploadForm.placeholder_jobDescription} />
                             </div>
                             <div className="form-div">
-                                <label htmlFor="uploader">Upload Resume</label>
+                                <label htmlFor="uploader">{u.uploadForm.label_uploadResume}</label>
                                 <FileUploader onFileSelect={handleFileSelect} />
                             </div>
-                            <button type="submit" className="primary-button">Analyze Resume</button>
+                            <button type="submit" className="primary-button">{u.uploadForm.analyzeResume}</button>
                         </form>
                     ) : (
                         <></>

@@ -1,3 +1,39 @@
 {
-  "title": "Resumind – Smart Resume Feedback"
+  "navbar": {
+    "upload": "Upload Resume"
+  },
+  "home": {
+    "metaTitle": "Resumind – Smart Resume Feedback",
+    "heroTitle": "Track Your Applications & Resume Ratings",
+    "heroSubtitle": "Review your submissions and check AI-powered feedback."
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "subText": "Log In To Continue Your Job Journey",
+    "signingIn": "Signing you in...",
+    "login": "Log In",
+    "logout": "Log Out"
+  },
+  "resume": {
+    "review": "Resume Review"
+  },
+  "upload": {
+    "title": "Smart feedback for your dream job",
+    "subtitle": "Drop your resume for an ATS score and improvement tips"
+  },
+  "uploadForm":{
+    "label_companyName": "Company Name",
+    "label_jobTitle": "Job Title",
+    "label_uploadResume": "Upload Resume", 
+    "label_jobDescription": "Job Description",
+    "analyzeResume": "Analyze Resume",
+    "placeholder_companyName": "Enter Company Name",
+    "placeholder_jobTitle": "Enter Job Title",
+    "span_uploadResume": "Click to upload",
+    "p_uploadResume": "or drag and drop your resume here",
+    "placeholder_jobDescription": "Enter Job Description"
+  },
+  "common": {
+    "backHomepage": "Back to Homepage"
+  }
 }
