@@ -5,7 +5,8 @@
   "home": {
     "metaTitle": "Resumind – Feedback AI para tu CV",
     "heroTitle": "Analizá tu CV y recibí Feedback potenciado por IA",
-    "heroSubtitle": "Subí tus postulaciones y obtené insights en tiempo real con IA"
+    "heroSubtitle": "Subí tus postulaciones y obtené insights en tiempo real con IA",
+    "heroSubtitle_alt": "No se encontraron CV. Subí tu primer CV para recibir feedback."
   },
   "auth": {
     "welcome": "Bienvenido",
@@ -47,6 +48,9 @@
     "strong":"Fuerte",
     "goodStart":"Buen Comienzo",
     "needWork":"Necesita Trabajo"
+  },
+  "resumeCard":{
+    "resume":"CV"
   },
   "common": {
     "backHomepage": "Inicio",

@@ -5,7 +5,8 @@
   "home": {
     "metaTitle": "Resumind – Smart Resume Feedback",
     "heroTitle": "Track Your Applications & Resume Ratings",
-    "heroSubtitle": "Review your submissions and check AI-powered feedback."
+    "heroSubtitle": "Review your submissions and check AI-powered feedback.",
+    "heroSubtitle_alt": "No resumes found. Upload your first resume to get feedback."
   },
   "auth": {
     "welcome": "Welcome",
@@ -47,6 +48,9 @@
     "strong":"Strong",
     "goodStart":"Good Start",
     "needWork":"Needs Work"
+  },
+  "resumeCard":{
+    "resume":"Resume"
   },
   "common": {
     "backHomepage": "Back to Homepage",
