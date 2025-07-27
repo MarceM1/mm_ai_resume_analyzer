@@ -21,10 +21,10 @@
     "title": "Smart feedback for your dream job",
     "subtitle": "Drop your resume for an ATS score and improvement tips"
   },
-  "uploadForm":{
+  "uploadForm": {
     "label_companyName": "Company Name",
     "label_jobTitle": "Job Title",
-    "label_uploadResume": "Upload Resume", 
+    "label_uploadResume": "Upload Resume",
     "label_jobDescription": "Job Description",
     "analyzeResume": "Analyze Resume",
     "placeholder_companyName": "Enter Company Name",
@@ -33,7 +33,26 @@
     "p_uploadResume": "or drag and drop your resume here",
     "placeholder_jobDescription": "Enter Job Description"
   },
+  "ATS": {
+    "score": "Puntuación ATS",
+    "title": "How well does your resume pass through Applicant Tracking Systems?",
+    "subtitle": "Your resume was scanned like an employer would. Here's how it was performed:",
+    "transitionText": "Want a better score? Improve your resume by applying the suggestions listed below."
+  },
+  "sumary":{
+    "title":"Your Resume Score",
+    "subtitle":"This Score is calculated based on the variables listed below."
+  },
+  "badge":{
+    "strong":"Strong",
+    "goodStart":"Good Start",
+    "needWork":"Needs Work"
+  },
   "common": {
-    "backHomepage": "Back to Homepage"
+    "backHomepage": "Back to Homepage",
+    "toneAndStyle": "Tone & Style",
+    "content": "Content",
+    "structure": "Structure",
+    "skills": "Skills"
   }
 }

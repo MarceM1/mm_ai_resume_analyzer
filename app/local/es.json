@@ -17,23 +17,42 @@
   "resume": {
     "review": "Análisis de CV"
   },
-  "upload":{
-    "title":"Feedback inteligente para tu trabajo soñado",
-    "subtitle":"Subí tu CV para obtener una puntuación ATS y consejos de mejora"
+  "upload": {
+    "title": "Feedback inteligente para tu trabajo soñado",
+    "subtitle": "Subí tu CV para obtener una puntuación ATS y consejos de mejora"
   },
-  "uploadForm":{
+  "uploadForm": {
     "label_companyName": "Nombre de la Empresa",
     "label_jobTitle": "Título de la Posición",
-    "label_uploadResume": "Subir CV", 
+    "label_uploadResume": "Subir CV",
     "label_jobDescription": "Descripción de la Posición",
     "analyzeResume": "Análisis de CV",
     "placeholder_companyName": "Ingresá Nombre de la Empresa",
     "placeholder_jobTitle": "Ingresá Título de la Posición",
-    "span_uploadResume": "Click para subir", 
-    "p_uploadResume":"o arrastrá y soltá",
+    "span_uploadResume": "Click para subir",
+    "p_uploadResume": "o arrastrá y soltá",
     "placeholder_jobDescription": "Ingresá Descripción de la Posición"
   },
+  "ATS": {
+    "score": "Puntuación ATS",
+    "title": "¿Tu CV supera los filtros automáticos de selección?",
+    "subtitle": "Escaneamos tu CV como lo haría una empresa. Mirá cómo le fue:",
+    "transitionText": "¿Querés un mejor puntaje? Mejorá tu CV con las sugerencias de abajo."
+  },
+  "sumary":{
+    "title":"Puntaje de tu CV",
+    "subtitle":"Este puntaje se calcula en base a los criterios listados a continuación."
+  },
+  "badge":{
+    "strong":"Fuerte",
+    "goodStart":"Buen Comienzo",
+    "needWork":"Necesita Trabajo"
+  },
   "common": {
-    "backHomepage": "Inicio"
+    "backHomepage": "Inicio",
+    "toneAndStyle": "Tono y Estilo",
+    "content": "Contenido",
+    "structure": "Estructura",
+    "skills": "Habilidades"
   }
 }

@@ -1,3 +1,4 @@
+import { useI18n } from "~/hooks/useI8n";
 import { cn } from "~/lib/utils";
 
 const ATS = ({
@@ -7,6 +8,8 @@ const ATS = ({
   score: number;
   suggestions: { type: "good" | "improve"; tip: string }[];
 }) => {
+  const {ATS} = useI18n();
+
   return (
     <div
       className={cn(
@@ -30,15 +33,14 @@ const ATS = ({
           alt="ATS"
           className="w-10 h-10"
         />
-        <p className="text-2xl font-semibold">ATS Score - {score}/100</p>
+        <p className="text-2xl font-semibold">{ATS.score} - {score}/100</p>
       </div>
       <div className="flex flex-col gap-2">
         <p className="font-medium text-xl">
-          How well does your resume pass through Applicant Tracking Systems?
+          {ATS.title}
         </p>
         <p className="text-lg text-gray-500">
-          Your resume was scanned like an employer would. Here's how it
-          performed:
+          {ATS.subtitle}
         </p>
         {suggestions.map((suggestion, index) => (
           <div className="flex flex-row gap-2 items-center" key={index}>
@@ -55,8 +57,7 @@ const ATS = ({
           </div>
         ))}
         <p className="text-lg text-gray-500">
-          Want a better score? Improve your resume by applying the suggestions
-          listed below.
+          {ATS.transitionText}
         </p>
       </div>
     </div>
