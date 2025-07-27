@@ -5,6 +5,7 @@ import ResumeCard from "~/components/ResumeCard";
 import {useEffect} from "react";
 import {useLocation, useNavigate} from "react-router";
 import {usePuterStore} from "~/lib/puter";
+import { useI18n } from "~/hooks/useI8n";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -15,6 +16,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+    const t = useI18n();
     const {isLoading, auth} = usePuterStore()
 
     const navigate = useNavigate()
@@ -27,7 +29,8 @@ export default function Home() {
         <section className="main-section">
             <div className="page-heading py-16">
                 <h1>
-                    Track Your Applications & Resume Ratings
+                    {/* {t.title} */}
+                     Track Your Applications & Resume Ratings 
                 </h1>
                 <h2>
                     Review your submissions abd check AI-powered feedback.

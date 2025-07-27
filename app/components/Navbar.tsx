@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { LanguageSwitch } from "./LanguageSwith";
 
 const Navbar = () => {
     return (
@@ -9,6 +10,7 @@ const Navbar = () => {
             <Link to={"/upload"} className="primary-button w-fit">
                 Upload Resume
             </Link>
+            {/* <LanguageSwitch /> */}
         </nav>
     );
 };
